@@ -38,7 +38,11 @@ public class FicheroRegTexto extends FicheroReg {
 	//Devuelve true si se pudieron inicializar los dos correctamente y false en caso contrario
 	@Override
 	public boolean abrirFicheroR() {
-		return false;
+		
+		File fichero = new File("C/:olmo/");
+		
+		
+		return fichero.exists();
 		
 		
 		
