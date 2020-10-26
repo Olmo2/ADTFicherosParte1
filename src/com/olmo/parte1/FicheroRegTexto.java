@@ -14,6 +14,7 @@ public class FicheroRegTexto extends FicheroReg {
 	FileWriter fichEscr2;
 	FileReader fichLect1;
 	BufferedReader fichLect2;
+	File fichero = new File("C/:olmo/registro.txt");
 	
 	
 	
@@ -37,12 +38,18 @@ public class FicheroRegTexto extends FicheroReg {
 	//Inicializa para ello tanto fichLect1 como fichLect2
 	//Devuelve true si se pudieron inicializar los dos correctamente y false en caso contrario
 	@Override
-	public boolean abrirFicheroR() {
-		
-		File fichero = new File("C/:olmo/");
-		
-		
-		return fichero.exists();
+	public boolean abrirFicheroR() {		
+		 try {
+			fichLect1 = new FileReader(fichero);
+			fichLect2 = new BufferedReader(fichLect1);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		if(fichLect1!=null&&fichLect2!=null) {
+			return true;
+		}return false;
 		
 		
 		
@@ -53,7 +60,19 @@ public class FicheroRegTexto extends FicheroReg {
 	//Después de cerrarlos les asigna el valor null
 	@Override
 	public boolean cerrarFicheroR() {
-		return false;
+		try {
+			fichLect1.close();
+			fichLect2.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		fichLect1 = null;
+		fichLect2 =null;
+		
+		
+	
+		return true;
 	
 	}
 	
@@ -61,7 +80,20 @@ public class FicheroRegTexto extends FicheroReg {
 	//Abre en modo escritura para añadir el fichero indicado en la variable de clase fichero
 	//Devuelve true si se pudo abrir correctamente y false en caso contrario
 	public boolean abrirFicheroW(boolean append){
-		return append;
+		
+		try {
+			fichEscr2 = new FileWriter(fichero, append);
+			fichEscr = new PrintWriter(fichEscr2, append);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		 
+		 
+		
+		
+		return true;
 		
 
 	}
@@ -71,6 +103,15 @@ public class FicheroRegTexto extends FicheroReg {
 	//Después de cerrarlos les asigna el valor null
 	@Override
 	public boolean cerrarFicheroW() {
+		
+		try {
+			fichEscr.close();
+			fichEscr2.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return false;
 
 	}
