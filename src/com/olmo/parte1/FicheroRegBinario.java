@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class FicheroRegTexto extends FicheroReg {
+public class FicheroRegBinario extends FicheroReg {
 
 	PrintWriter fichEscr;
 	FileWriter fichEscr2;
@@ -19,14 +19,14 @@ public class FicheroRegTexto extends FicheroReg {
 	
 	
 	
-	public FicheroRegTexto() {
+	public FicheroRegBinario() {
 		this.fichEscr=null;
 		this.fichEscr2=null;
 		this.fichLect1=null;
 		this.fichLect2=null;
 	}
 	
-	public FicheroRegTexto(String fich) {
+	public FicheroRegBinario(String fich) {
 		super(fich);
 		this.fichEscr=null;
 		this.fichEscr2=null;
@@ -249,6 +249,8 @@ public class FicheroRegTexto extends FicheroReg {
 		return i;
 
 	}
+
+	
 	
 	
 }

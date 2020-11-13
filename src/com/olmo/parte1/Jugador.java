@@ -5,7 +5,7 @@ public class Jugador {
 	
 	String nombre;
 	String apellido;
-	int dorsal;
+	Integer dorsal;
 	String posicion;
 	public String getNombre() {
 		return nombre;
