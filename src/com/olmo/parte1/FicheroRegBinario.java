@@ -15,7 +15,7 @@ public class FicheroRegBinario extends FicheroReg {
 	FileWriter fichEscr2;
 	FileReader fichLect1;
 	BufferedReader fichLect2;
-	File fichero = new File("C/:olmo/registro.txt");
+	File fichero = new File("C/:olmo/registro.dat");
 	
 	
 	
